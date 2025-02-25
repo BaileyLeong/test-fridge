@@ -1,0 +1,70 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+}
+
+.fridge {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  background: #ccc;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  perspective: 600px;
+  transition: transform 2s ease-in-out;
+
+  .fridge-door {
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    border: 2px solid #999;
+    position: absolute;
+    top: 0;
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+
+    .handle {
+      width: 10px;
+      height: 50px;
+      background: linear-gradient(to bottom, #bbb, #777);
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      position: absolute;
+    }
+  }
+
+  .left-door {
+    left: 0;
+    transform-origin: left center;
+
+    .handle {
+      right: 5px;
+    }
+  }
+
+  .right-door {
+    right: 0;
+    transform-origin: right center;
+
+    .handle {
+      left: 5px;
+    }
+  }
+
+  &:hover {
+    .left-door {
+      transform: rotateY(-100deg);
+    }
+    .right-door {
+      transform: rotateY(100deg);
+    }
+    transform: scale(2);
+    transition-delay: 0.5s;
+  }
+}
